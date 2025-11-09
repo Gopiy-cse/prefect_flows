@@ -23,6 +23,6 @@ pull:
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
   - name: db-check-flow
-    entrypoint: prefect_flows-main/flow.py:db_check
+    entrypoint: flow.py:db_check
     work_pool:
       name: my-work-pool

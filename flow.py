@@ -1,13 +1,15 @@
 from prefect import flow, task
 from prefect.logging import get_run_logger
+from prefect.blocks.system import Secret
 import requests
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+SUPABASE_DICT = Secret.load("supabase-secret").get()
+
+SUPABASE_URL = SUPABASE_DICT["SUPABASE_URL"]
+SUPABASE_KEY = SUPABASE_DICT["SUPABASE_KEY"]
 
 # Ensure environment variables are loaded
 if not SUPABASE_URL:
