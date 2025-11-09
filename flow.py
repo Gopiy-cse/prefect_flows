@@ -9,9 +9,11 @@ load_dotenv()
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-# Debug: Print environment variables
-print(f"SUPABASE_URL: {SUPABASE_URL}")
-print(f"SUPABASE_KEY: {SUPABASE_KEY[:10]}...")
+# Ensure environment variables are loaded
+if not SUPABASE_URL:
+    raise ValueError("SUPABASE_URL environment variable is not set")
+if not SUPABASE_KEY:
+    raise ValueError("SUPABASE_KEY environment variable is not set")
 
 @task
 def check_db():
