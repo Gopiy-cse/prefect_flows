@@ -18,7 +18,7 @@ pull:
     repository: https://github.com/Gopiy-cse/prefect_flows.git
     branch: main
 - prefect.deployments.steps.pip_install_requirements:
-    requirements_file: requirements.txt
+    requirements_file: prefect_flows-main/requirements.txt
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
